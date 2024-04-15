@@ -37,3 +37,38 @@ python main.py
 ```
 
 If your Python binary requires you to specify the version, you can use `python3.12` instead of `python`.
+
+## Initiate a virtual environment and install Scikit-Learn
+
+Make sure you have virtualenv installed:
+
+```bash
+virtualenv --version
+```
+
+Then create a new virtual environment for the project:
+
+```bash
+virtualenv -p python3.12 venv
+```
+
+Activate the virtual environment:
+
+```bash
+source venv/bin/activate
+```
+
+Install Scikit-Learn:
+
+```bash
+pip install scikit-learn
+```
+
+To have a list of all the installed packages with their versions, you can run:
+
+```bash
+pip freeze > requirements.txt
+```
+
+This will dump all the installed packages into a file called `requirements.txt`. This way, the next person who works on
+the project can install the exact same versions of the packages.
