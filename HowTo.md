@@ -131,3 +131,47 @@ You should see the model's accuracy printed to the console. In my case, the outp
 ```
 Model accuracy: 0.9
 ```
+
+## Dockerize the project
+
+To run the Python code in a Docker container, use the `docker init` command to create a new Dockerfile:
+
+```bash
+docker init
+```
+
+The prompt will ask you a few questions. Here are the answers you should provide:
+
+- **What application platform does your project use?** Select `Python`. It should be automatically detected.
+- **What version of Python do you want to use?** It is also automatically detected. In my case, it was `3.12.3`. Just press Enter.
+- **What port do you want your app to listen on?** Press Enter to accept the default value `8080`.
+- **What is the command you use to run your app?** Enter `python main.py`.
+
+The following resources will be added to your project:
+
+- A `Dockerfile` that describes how to build the Docker image.
+- A `.dockerignore` file that specifies which files and directories to exclude from the Docker build context.
+- A `compose.yaml` file that describes how to run the Docker container.
+- A `README.Docker.md` file with instructions on how to build and run the Docker container.
+
+To run the Docker container, use the following command:
+
+```bash
+docker compose up --build
+```
+
+This will build the Docker image and start the container. You should see the output of the Python script in the console.
+
+```
+Attaching to server-1
+server-1  | Model accuracy: 1.0
+server-1 exited with code 0
+```
+
+The next time you want to start the container, you can use:
+
+```bash
+docker compose up
+```
+
+It won't rebuild the image, so it will start faster.
