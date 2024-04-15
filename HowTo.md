@@ -72,3 +72,62 @@ pip freeze > requirements.txt
 
 This will dump all the installed packages into a file called `requirements.txt`. This way, the next person who works on
 the project can install the exact same versions of the packages.
+
+## Create a simple classifier with Scikit-Learn
+
+Now that we have Scikit-Learn installed, let's create a simple classifier based on the Iris dataset. Change the content
+of `main.py` to the following:
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+
+
+def main():
+    """
+    This function is a hello-world function for scikit-learn.
+    It loads the Iris dataset, splits it into training and testing sets, and trains a random forest classifier.
+    :return: The model
+    """
+    # Load the Iris dataset
+    iris = load_iris()
+    X = iris.data
+    y = iris.target
+
+    # Split the dataset into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+    # Train a random forest classifier
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+
+    # Print the model's accuracy
+    print(f'Model accuracy: {model.score(X_test, y_test)}')
+
+    return model
+
+
+if __name__ == '__main__':
+    main()
+```
+
+Some explanations about the code:
+
+- We load the Iris dataset using `load_iris()` from Scikit-Learn. Iris is a simple dataset with 150 samples and 4 features.
+- We split the dataset into training and testing sets using `train_test_split()`. We use 80% of the data for training and 20% for testing.
+- We train a random forest classifier using `RandomForestClassifier()`. This is a simple classifier that works well on the Iris dataset.
+- We print the model's accuracy on the test set using `model.score(X_test, y_test)`.
+- Finally, we return the trained model.
+
+Try running the script with:
+
+```bash
+python main.py
+```
+
+You should see the model's accuracy printed to the console. In my case, the output was:
+
+```
+Model accuracy: 0.9
+```
