@@ -175,3 +175,16 @@ docker compose up
 ```
 
 It won't rebuild the image, so it will start faster.
+
+## Conclusion
+
+This article showed you how to create a simple classifier using Scikit-Learn and run it in a Docker container. You learned how to:
+
+- Install Python and Scikit-Learn.
+- Create a simple Python script.
+- Train a classifier on the Iris dataset.
+- Dockerize the project and run it in a container.
+
+You can now extend this example by trying different classifiers, datasets, or even building a web service around the classifier. 
+Scikit-Learn is a powerful library for machine learning, and Docker is a great way to package and run your Python code.
+By building the Docker image for the target platform, you can deploy your application to the cloud with ease, or share it with others.
